@@ -24,7 +24,7 @@ public class AppController {
 	@RequestMapping("/showPage")	
 	public String getsendPage(ModelMap map) {
 		map.addAttribute("emailModel",new EmailModel());
-		return "Email";
+		return "email-send";
 	} 
 	
 	@RequestMapping(value="/send",method = RequestMethod.POST)
@@ -33,12 +33,14 @@ public class AppController {
 			){
 		
 			if(result.hasErrors()) {
-				return  "Email";
+				System.out.println("If error is executed");
+				return  "email-send";
 			}
 			else {
+				System.out.println("else is executed");
 			boolean flag=util.send(emailModel, fileOb);
 			if(flag)
-		map.addAttribute("msg", "your Mail Sent Sucessfully!!");
+				map.addAttribute("msg", "your Mail Sent Sucessfully!!");
 			else {
 				map.addAttribute("msg", "mail not sent please try again");
 			}

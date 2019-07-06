@@ -13,6 +13,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.app.model.EmailModel;
 
+
 @Component
 public class EmailUtil {
 
@@ -30,21 +31,24 @@ public class EmailUtil {
 			helper.setText(email.getMessage());
 			
 			  if(email.getUserBcc()!=null) { 
-				  StringTokenizer token=new StringTokenizer(email.getUserBcc(), ","); 
-				  String[] bcc=new String[] {};	  
-				  while(token.hasMoreTokens()) {
-					  bcc=new String[] {token.nextToken()}; 
-				  } 
-			  
+				 /*StringTokenizer token=new StringTokenizer(email.getUserBcc(), ","); 
+				 String[] bcc=new String[token.countTokens()]; 
+				 int i=0; 
+				 while(token.hasMoreTokens()) {
+					bcc[i]=  token.nextToken(); 
+					i++;
+				  }*/   
+				String[] bcc=email.getUserBcc().split(",");
 			  helper.setBcc(bcc);
 			  }
 			
 				
 			if(email.getUserCc()!=null) {
 				StringTokenizer token=new StringTokenizer(email.getUserCc(),",");
-				String []cc=new String[] {};
+				String []cc=new String[token.countTokens()];
+				int i=0;
 				while(token.hasMoreTokens()){
-				cc=new String[] {token.nextToken()};
+				cc[i]=token.nextToken();
 				}
 			helper.setCc(cc);	
 			}

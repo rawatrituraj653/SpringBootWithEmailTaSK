@@ -13,7 +13,7 @@ public class EmailModel {
 	@Email(message="Email ends With @gmail.com")
 	@NotEmpty(message = "this is required")
 	private String userTo;
-	@NotBlank
+	@NotBlank(message="reqiured*******")
 	@Size(min = 3 ,max = 30,message = "size should be 3 to 30 characters")
 	private String subject;
 	private String userCc;
