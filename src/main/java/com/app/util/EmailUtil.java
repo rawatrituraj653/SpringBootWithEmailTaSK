@@ -31,14 +31,14 @@ public class EmailUtil {
 			helper.setText(email.getMessage());
 			
 			  if(email.getUserBcc()!=null) { 
-				 /*StringTokenizer token=new StringTokenizer(email.getUserBcc(), ","); 
+				 StringTokenizer token=new StringTokenizer(email.getUserBcc(), ","); 
 				 String[] bcc=new String[token.countTokens()]; 
 				 int i=0; 
 				 while(token.hasMoreTokens()) {
 					bcc[i]=  token.nextToken(); 
 					i++;
-				  }*/   
-				String[] bcc=email.getUserBcc().split(",");
+				  }   
+				//String[] bcc=email.getUserBcc().split(",");
 			  helper.setBcc(bcc);
 			  }
 			

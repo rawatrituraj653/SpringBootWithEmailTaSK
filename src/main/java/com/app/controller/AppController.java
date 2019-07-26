@@ -28,7 +28,7 @@ public class AppController {
 	} 
 	
 	@RequestMapping(value="/send",method = RequestMethod.POST)
-	public String sendMail(@Valid @ModelAttribute EmailModel emailModel,@RequestParam MultipartFile fileOb,BindingResult result,
+	public String sendMail(@Valid @ModelAttribute EmailModel emailModel,BindingResult result,@RequestParam MultipartFile fileOb,
 			Model map
 			){
 		
